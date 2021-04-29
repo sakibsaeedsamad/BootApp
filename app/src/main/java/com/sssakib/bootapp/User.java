@@ -22,29 +22,36 @@ public class User {
     @SerializedName("image")
     private String image;
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public User(String name, String mobile, String email, String address, String password) {
+    public User(String name, String mobile, String email, String address, String password, long id, String image) {
         this.name = name;
         this.mobile = mobile;
         this.email = email;
         this.address = address;
         this.password = password;
+        this.id = id;
+        this.image = image;
+    }
+    public User(String name, String mobile, String email, String address, String password,String image) {
+        this.name = name;
+        this.mobile = mobile;
+        this.email = email;
+        this.address = address;
+        this.password = password;
+        this.image=image;
+
     }
 
-    public User(String mobile, String password) {
+
+
+
+    public User( String mobile, String password ) {
         this.mobile = mobile;
         this.password = password;
 
     }
 
-    public User(String email, String address, String password, String image) {
+
+    public User(String email, String address, String password,String image) {
         this.email = email;
         this.address = address;
         this.password = password;
@@ -100,5 +107,12 @@ public class User {
         this.password = password;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
 

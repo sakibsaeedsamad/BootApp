@@ -18,7 +18,11 @@ public class Welcome extends AppCompatActivity implements View.OnClickListener {
     TextView nameTV,mobileTV,emailTV,addressTV;
     ImageView imageView;
     Button clickForUpdateBTN;
-    String name,mobile,email,address,img;
+    String name;
+    String mobile;
+    String email;
+    String address;
+    String  img;
     private long id;
 
 
@@ -34,8 +38,9 @@ public class Welcome extends AppCompatActivity implements View.OnClickListener {
         mobile = intent.getExtras().getString("mobile");
         email = intent.getExtras().getString("email");
         address = intent.getExtras().getString("address");
+
+        img = intent.getExtras().getString("img");
         id= intent.getExtras().getLong("id");
-        //img = intent.getExtras().getString("img");
 
         nameTV = findViewById(R.id.nameTV);
         mobileTV = findViewById(R.id.mobileTV);
@@ -51,7 +56,7 @@ public class Welcome extends AppCompatActivity implements View.OnClickListener {
         mobileTV.setText(mobile);
         emailTV.setText(email);
         addressTV.setText(address);
-      //imageView.setImageBitmap(convertStringToBitmap(img));
+        imageView.setImageBitmap(convertStringToBitmap(img));
 
         clickForUpdateBTN.setOnClickListener(this);
 
@@ -73,11 +78,9 @@ public class Welcome extends AppCompatActivity implements View.OnClickListener {
 
     }
     public static Bitmap convertStringToBitmap(String string) {
-        byte[] byteArray1;
-        byteArray1 = Base64.decode(string, Base64.DEFAULT);
-        Bitmap bmp = BitmapFactory.decodeByteArray(byteArray1, 0,
-                byteArray1.length);
-        return bmp;
+        byte[] byteArray = Base64.decode(string, Base64.DEFAULT);
+        Bitmap decodeBmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        return decodeBmp;
     }
 
 }

@@ -16,4 +16,5 @@ public interface API {
 
     @PUT("update/{id}")
     Call<User> updateUser(@Body User user, @Path("id") long id);
+
 }

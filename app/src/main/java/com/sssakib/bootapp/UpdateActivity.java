@@ -60,14 +60,14 @@ public class UpdateActivity extends AppCompatActivity {
                 String email = emailUpdateET.getText().toString().trim();
                 String address = addressUpdateET.getText().toString().trim();
                 String password = passwordUpdateET.getText().toString().trim();
-                String image=imageResult;
+                String  image=imageResult;
 
 
 
                 if (  email.isEmpty() || address.isEmpty() || password.isEmpty() ) {
                     Toast.makeText(getApplicationContext(), "Fill up all values", Toast.LENGTH_LONG).show();
                 } else {
-                    User u = new User(email, address, password,image );
+                    User u = new User(email, address, password,image);
 
                     Call<User> call = RetrofitClient
                             .getInstance()
@@ -91,6 +91,7 @@ public class UpdateActivity extends AppCompatActivity {
                             i.putExtra("address", address);
                             i.putExtra("id", id);
                             i.putExtra("img",img);
+
                             startActivity(i);
 
 
@@ -173,7 +174,7 @@ public class UpdateActivity extends AppCompatActivity {
     }
     public static String convertBitmapToString(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 5, stream);
         byte[] byteArray = stream.toByteArray();
         String result = Base64.encodeToString(byteArray, Base64.DEFAULT);
         return result;

@@ -75,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         String address = response.body().getAddress();
                         String pass = response.body().getPassword();
                         Long id = response.body().getId();
+                        String img=response.body().getImage();
+
 
                         if(mob.equals(mobile)&& pass.equals(password)){
                             Intent i = new Intent(MainActivity.this,Welcome.class);
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             i.putExtra("email",email);
                             i.putExtra("address",address);
                             i.putExtra("id",id);
+                            i.putExtra("img",img);
                             startActivity(i);
                             cleanFields();
                         }

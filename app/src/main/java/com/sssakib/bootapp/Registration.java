@@ -54,13 +54,31 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         String email = emailRegistrationET.getText().toString().trim();
         String password = passwordRegistrationET.getText().toString().trim();
         String address = addressRegistrationET.getText().toString().trim();
+        String img= "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAKBueIx4ZKCMgoy0qqC+8P//8Nzc8P//////////////\n" +
+                "////////////////////////////////////////////2wBDAaq0tPDS8P//////////////////\n" +
+                "////////////////////////////////////////////////////////////wAARCAEEAMMDASIA\n" +
+                "AhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECA//EAB8QAQACAgIDAQEAAAAAAAAAAAABEQIx\n" +
+                "IUFRYYEyA//EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABoRAQEBAQEBAQAAAAAAAAAAAAARARIh\n" +
+                "AjH/2gAMAwEAAhEDEQA/AOYAIAAAAAAAAAAAAAAAAAAABC5XfKCgACiNY6RWSm6KKsYopuigjFFN\n" +
+                "0UJGKKbooIwU1RQRmhqigjI1RQRkaooIyLMMiKIAoAAADWPbLWOpFxQVGkFAQUBC1+HwEuS1FEst\n" +
+                "TgEsteDgEsXg4BmdMN5aYGdABBUAAAVrHtlrDci40AjQcABwcAAAoAAfQAAACgBMvzLm3npgZ0AE\n" +
+                "AAAAVrDcstYbFaWvYUjRXsr2UUoV7AAKACigAooAEUBF6AGM9MOmenMZ39ABAAAAFaw/TLWP6gGx\n" +
+                "Y2g2AAAABQBZfsoAufIAAAAHQMZ9Mt59MKzqKCIgAAAK1j+oZax3Cja3PkEbLnyXPkALAAA+AB8P\n" +
+                "gAfAAAAAHPPbLee2VY1CQlBBUAABqFjaKo6HYqNIKAgoCCgIKAgoCCgIL8QGMtstZbRWUJAEAQQA\n" +
+                "GlRpRtUjUKi7swAWMd6AEO9ACHegBDvQAh3oANfO0RURpidos7RWRFQEFQEAQbVFUbjUKkaUN9wA\n" +
+                "Wsc6AFOdAA50ASnOgBTnQAa+cgiiNsTtFRWERpBUJiuxctar7YMAINqiqNY6aZx0s8QiqM3K2sKo\n" +
+                "llkKolyckKonJyQqiXJckKozclyQrSESSDJwd8mVXFDKIqCnaZrG0yBkBBtUhYUaxWdJioqVJTQU\n" +
+                "SilCiVJUqFEqfJU+VCiUUoUSkpQoRFE6EnQIh2DIgCkbZyahnIEAQdMdhAo1irMbaDEtbSpKlfBb\n" +
+                "LSijwWy5KKlAuS5OSgSyyigLLkopQiSdGiUVkARAAIZnbTE7AAQdI2vbKztRY20zG2gwARQAAAAA\n" +
+                "AABAUCRJAvhCgQRUAYnbp05gAINqi2osNMNAoCKAAAAAAAigAAkqkiCKAgAGWnN0z05gAINqgopY\n" +
+                "AogCgAAAAUAAACggAApwCAAznphrPplAABsBQUAAAAAAAUAAAAAAAAAAgAY/ptkEAAH/2Q==\n";
         if (name.isEmpty() || mobile.isEmpty() || email.isEmpty() || password.isEmpty() || address.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Fill up all values", Toast.LENGTH_LONG).show();
         } else {
             Call<ResponseModel> call = RetrofitClient
                     .getInstance()
                     .getAPI()
-                    .createUser(new User(name, mobile, email, address, password));
+                    .createUser(new User(name, mobile, email, address, password,img));
             call.enqueue(new Callback<ResponseModel>() {
                 @Override
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
