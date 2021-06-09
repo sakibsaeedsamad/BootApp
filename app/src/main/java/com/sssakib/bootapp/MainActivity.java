@@ -10,16 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.List;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

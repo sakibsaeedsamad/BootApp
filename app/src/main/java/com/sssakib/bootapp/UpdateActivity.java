@@ -64,7 +64,7 @@ public class UpdateActivity extends AppCompatActivity {
 
 
 
-                if (  email.isEmpty() || address.isEmpty() || password.isEmpty() ) {
+                if (  email.isEmpty() || address.isEmpty() || password.isEmpty()||image.isEmpty() ) {
                     Toast.makeText(getApplicationContext(), "Fill up all values", Toast.LENGTH_LONG).show();
                 } else {
                     User u = new User(email, address, password,image);
